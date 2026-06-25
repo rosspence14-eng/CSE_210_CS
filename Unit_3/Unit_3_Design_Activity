@@ -1,0 +1,121 @@
+Word
+Purpose: Represents a single word in the scripture and whether it is hidden.
+Responsibilities:
+
+Store the text of the word
+
+Track whether the word is hidden
+
+Hide itself when asked
+
+Display either the real word or blanks
+
+------------------------------
+|            Word            |
+------------------------------
+| - _text : string           |
+| - _isHidden : bool         |
+------------------------------
+| + Word(text)               |
+| + Hide()                   |
+| + IsHidden() : bool        |
+| + GetDisplayText() : string|
+------------------------------
+
+
+
+
+
+ScriptureReference
+Purpose: Stores the reference (book, chapter, verse(s)) for a scripture.
+Responsibilities:
+
+Store the book name
+
+Store chapter and verse numbers
+
+Return a formatted reference string
+
+-------------------------------------
+|        ScriptureReference         |
+-------------------------------------
+| - _book : string                  |
+| - _chapter : int                  |
+| - _verse : int                    |
+| - _endVerse : int (optional)      |
+-------------------------------------
+| + ScriptureReference(book, ch, v) |
+| + ScriptureReference(book,ch,v1,v2)|
+| + ToString() : string             |
+-------------------------------------
+
+
+
+
+
+Scripture
+Purpose: Holds the scripture text and manages hiding words.
+Responsibilities:
+
+Store the reference
+
+Store a list of Word objects
+
+Hide random words
+
+Check if all words are hidden
+
+Display the scripture with hidden words replaced
+
+Code
+-----------------------------------------
+|               Scripture                |
+-----------------------------------------
+| - _reference : ScriptureReference      |
+| - _words : List<Word>                  |
+| - _rng : Random                        |
+-----------------------------------------
+| + Scripture(reference, text)           |
+| + HideRandomWords(count)               |
+| + IsFullyHidden() : bool               |
+| + GetDisplayText() : string            |
+-----------------------------------------
+
+
+
+
+
+Program Flow Description
+
+1. Load Scripture
+Program creates a ScriptureReference object
+
+Program creates a Scripture object using the reference and full text
+
+Scripture splits the text into Word objects
+
+2. Display Scripture
+Program calls scripture.GetDisplayText()
+
+Words that are hidden show as "_____"
+
+Visible words show normally
+
+3. Loop Until User Quits or All Words Hidden
+Program waits for user input
+
+Press Enter hide a few random words
+
+Type “quit” exit
+
+Program calls scripture.HideRandomWords()
+
+Program redisplays the scripture
+
+Program checks scripture.IsFullyHidden()
+
+If true end program
+
+4. End Program
+
+When all words are hidden or user quits, program exits

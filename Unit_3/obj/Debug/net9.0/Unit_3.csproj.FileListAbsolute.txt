@@ -1,0 +1,15 @@
+C:\Hidden Desktop\school\C#\Unit_3\bin\Debug\net9.0\Unit_3.exe
+C:\Hidden Desktop\school\C#\Unit_3\bin\Debug\net9.0\Unit_3.deps.json
+C:\Hidden Desktop\school\C#\Unit_3\bin\Debug\net9.0\Unit_3.runtimeconfig.json
+C:\Hidden Desktop\school\C#\Unit_3\bin\Debug\net9.0\Unit_3.dll
+C:\Hidden Desktop\school\C#\Unit_3\bin\Debug\net9.0\Unit_3.pdb
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.AssemblyInfoInputs.cache
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.AssemblyInfo.cs
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.csproj.CoreCompileInputs.cache
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.sourcelink.json
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.dll
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\refint\Unit_3.dll
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.pdb
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\Unit_3.genruntimeconfig.cache
+C:\Hidden Desktop\school\C#\Unit_3\obj\Debug\net9.0\ref\Unit_3.dll
