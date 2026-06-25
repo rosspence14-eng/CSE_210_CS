@@ -1,0 +1,146 @@
+
+
+Entry
+Purpose: Represents one journal entry.
+Responsibilities:
+
+Store the date, prompt, and user’s response
+
+Display itself
+
+Convert itself to a savable string
+
+Reconstruct itself from a saved string
+
+
+-------------------------------
+|           Entry             |
+-------------------------------
+| - _date : string            |
+| - _prompt : string          |
+| - _response : string        |
+-------------------------------
+| + Entry(date, prompt, resp) |
+| + Display()                 |
+| + ToFileFormat() : string   |
+| + FromFileFormat(line):Entry|
+-------------------------------
+
+
+
+Journal
+Purpose: Holds all entries and manages them.
+Responsibilities:
+
+Store a list of Entry objects
+
+Add new entries
+
+Display all entries
+
+Save entries to a file
+
+Load entries from a file
+
+
+------------------------------------
+|             Journal              |
+------------------------------------
+| - _entries : List<Entry>         |
+------------------------------------
+| + AddEntry(entry)                |
+| + DisplayAll()                   |
+| + SaveToFile(filename)           |
+| + LoadFromFile(filename)         |
+------------------------------------
+
+
+
+PromptGenerator
+Purpose: Provide random writing prompts.
+Responsibilities:
+
+Store a list of prompts
+
+Return a random prompt when asked
+
+
+------------------------------------
+|        PromptGenerator           |
+------------------------------------
+| - _prompts : List<string>        |
+| - _rng : Random                  |
+------------------------------------
+| + GetRandomPrompt() : string     |
+------------------------------------
+
+My prompt list includes:
+
+Who was the most interesting person I interacted with today?
+
+What was the best part of my day?
+
+How did I see the hand of the Lord in my life today?
+
+What was the strongest emotion I felt today?
+
+If I had one thing I could do over today, what would it be?
+
+What is something I learned today?
+
+What surprised me today?
+
+
+
+
+
+
+
+
+
+
+Program Flow Description
+1. Show Menu
+The program repeatedly shows this menu:
+
+Write a new entry
+
+Display journal
+
+Save journal
+
+Load journal
+
+Quit
+
+2. Write a New Entry
+Program asks PromptGenerator for a random prompt
+
+Displays the prompt to the user
+
+User types their response
+
+Program gets the current date
+
+Creates a new Entry object
+
+Adds it to the Journal
+
+3. Display Journal
+Program calls Journal.DisplayAll()
+
+Each Entry prints itself
+
+4. Save Journal
+Program asks for a filename
+
+Calls Journal.SaveToFile(filename)
+
+Journal writes each Entry to the file
+
+5. Load Journal
+Program asks for a filename
+
+Calls Journal.LoadFromFile(filename)
+
+Journal replaces its entries with the ones from the file

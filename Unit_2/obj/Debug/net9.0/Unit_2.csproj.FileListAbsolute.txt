@@ -1,0 +1,14 @@
+C:\Hidden Desktop\school\C#\Unit_2\bin\Debug\net9.0\Unit_2.exe
+C:\Hidden Desktop\school\C#\Unit_2\bin\Debug\net9.0\Unit_2.deps.json
+C:\Hidden Desktop\school\C#\Unit_2\bin\Debug\net9.0\Unit_2.runtimeconfig.json
+C:\Hidden Desktop\school\C#\Unit_2\bin\Debug\net9.0\Unit_2.dll
+C:\Hidden Desktop\school\C#\Unit_2\bin\Debug\net9.0\Unit_2.pdb
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.AssemblyInfoInputs.cache
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.AssemblyInfo.cs
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.csproj.CoreCompileInputs.cache
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.dll
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\refint\Unit_2.dll
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.pdb
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\Unit_2.genruntimeconfig.cache
+C:\Hidden Desktop\school\C#\Unit_2\obj\Debug\net9.0\ref\Unit_2.dll
