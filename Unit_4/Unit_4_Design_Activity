@@ -1,0 +1,165 @@
+Activity
+Purpose: Base class for all mindfulness activities.
+Responsibilities:
+
+Store the name, description, and duration of an activity
+Display start and end messages
+Provide a countdown spinner during activities
+Define the structure for running any activity
+
+
+--------------------------------------------
+|              Activity                    |
+--------------------------------------------
+| - _name_RP : string                     |
+| - _description_RP : string              |
+| - _duration_RP : int                    |
+--------------------------------------------
+| + Activity(name, description)           |
+| + SetDuration_RP(duration)              |
+| + GetDuration_RP() : int               |
+| + DisplayStartMessage_RP()             |
+| + DisplayEndMessage_RP()               |
+| - Spinner_RP(seconds)                  |
+| + RunActivity_RP() [abstract]          |
+--------------------------------------------
+
+
+
+BreathingActivity
+Purpose: Guides the user through breathing exercises.
+Responsibilities:
+
+Inherit from Activity class
+Guide user to breathe in and out with timed intervals
+Display calming prompts during the activity
+
+
+--------------------------------------------------
+|           BreathingActivity                     |
+--------------------------------------------------
+| (inherits all members from Activity)            |
+--------------------------------------------------
+| + BreathingActivity()                           |
+| + RunActivity_RP() [override]                   |
+--------------------------------------------------
+
+
+
+ReflectionActivity
+Purpose: Helps users reflect on meaningful moments in their lives.
+Responsibilities:
+
+Inherit from Activity class
+Present a random reflective prompt
+Cycle through thoughtful questions during the activity
+
+
+----------------------------------------------------
+|            ReflectionActivity                     |
+----------------------------------------------------
+| - _prompts_RP : List<string>                      |
+| - _questions_RP : List<string>                     |
+| - _rng_RP : Random                                |
+----------------------------------------------------
+| + ReflectionActivity()                            |
+| + RunActivity_RP() [override]                     |
+----------------------------------------------------
+
+
+
+ListingActivity
+Purpose: Helps users focus on positive things by listing them.
+Responsibilities:
+
+Inherit from Activity class
+Present a random listing prompt
+Allow the user to enter items one at a time
+Count and display how many items were listed
+
+
+--------------------------------------------------
+|             ListingActivity                     |
+--------------------------------------------------
+| - _prompts_RP : List<string>                     |
+| - _rng_RP : Random                               |
+--------------------------------------------------
+| + ListingActivity()                              |
+| + RunActivity_RP() [override]                    |
+--------------------------------------------------
+
+
+
+ActivityLog_RP (NEW)
+Purpose: Tracks and stores statistics about mindfulness activities.
+Responsibilities:
+
+Track how many times each activity type was completed
+Track total time spent in all mindfulness activities
+Save statistics to a file after each activity
+Load saved statistics when the program starts
+Display statistics on demand
+
+
+----------------------------------------------------
+|             ActivityLog_RP                        |
+----------------------------------------------------
+| - _filename_RP : string                          |
+| - _breathingCount_RP : int                       |
+| - _reflectionCount_RP : int                      |
+| - _listingCount_RP : int                         |
+| - _totalTimeSpent_RP : int                       |
+----------------------------------------------------
+| + ActivityLog_RP()                               |
+| + LogActivity_RP(name, duration)                 |
+| + DisplayStats_RP()                              |
+| - SaveStats_RP()                                 |
+| - LoadStats_RP()                                 |
+--------------------------------------------------
+
+
+
+Program Flow Description
+
+1. Show Main Menu
+The program repeatedly shows this menu:
+
+   Breathing Activity
+   Reflection Activity
+   Listing Activity
+   View Statistics
+   Quit
+
+2. Start an Activity
+   User selects an activity (1, 2, or 3)
+   Program creates the corresponding activity object
+   Program calls RunActivity_RP() on that object
+   The activity displays a welcome message and asks for duration
+   The activity runs for the specified time
+   When finished, the activity logs itself via ActivityLog_RP
+     (logs the activity name and duration spent)
+
+3. View Statistics
+   User selects option 4
+   Program calls DisplayStats_RP() on the ActivityLog_RP object
+   Displays:
+     - Number of Breathing activities completed
+     - Number of Reflection activities completed
+     - Number of Listing activities completed
+     - Total number of activities
+     - Total time spent in mindfulness (in minutes and seconds)
+   Waits for user to press Enter, then returns to main menu
+
+4. Quit
+   User selects option 5
+   Statistics are automatically saved to file
+   Program exits
+
+5. Data Persistence
+   When the program starts, ActivityLog_RP loads statistics from file
+   After each activity completes, statistics are saved to file
+   File format: four lines containing integers
+     Line 1: Breathing count
+     Line 2: Reflection count
+     Line 3: Listing count
+     Line 4: Total time in seconds
