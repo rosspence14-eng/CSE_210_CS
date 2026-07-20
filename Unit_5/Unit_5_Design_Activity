@@ -1,0 +1,270 @@
+Goal (Base Class)
+Purpose:  
+Represents a general goal in the Eternal Quest system. Provides shared structure and behavior for all goal types.
+
+Responsibilities:
+
+Store the name, description, and base point value
+
+Track completion status
+
+Provide a common interface for recording progress
+
+Provide a common interface for displaying goal status
+
+Provide a common interface for saving/loading goal data
+
+Code
+---------------------------------------------------------
+|                       Goal                            |
+---------------------------------------------------------
+| - _name_RP : string                                    |
+| - _description_RP : string                             |
+| - _points_RP : int                                     |
+| - _isComplete_RP : bool                                |
+---------------------------------------------------------
+| + Goal(name, description, points)                      |
+| + GetName_RP() : string                                |
+| + GetDescription_RP() : string                         |
+| + GetPoints_RP() : int                                 |
+| + IsComplete_RP() : bool                               |
+| - SetComplete_RP(value)                                |
+| + RecordEvent_RP() : int        [abstract]             |
+| + GetStatusString_RP() : string [abstract]             |
+| + GetStringRepresentation_RP() : string [abstract]     |
+---------------------------------------------------------
+SimpleGoal
+Purpose:  
+A goal that is completed once and awards points a single time.
+
+Responsibilities:
+
+Inherit from Goal
+
+Mark itself complete when recorded
+
+Award points only once
+
+Code
+---------------------------------------------------------
+|                   SimpleGoal                           |
+---------------------------------------------------------
+| (inherits all members from Goal)                       |
+---------------------------------------------------------
+| + SimpleGoal(name, description, points)                |
+| + RecordEvent_RP() : int        [override]             |
+| + GetStatusString_RP() : string [override]             |
+| + GetStringRepresentation_RP()  [override]             |
+---------------------------------------------------------
+EternalGoal
+Purpose:  
+A goal that is never complete. Each time the user records it, they earn points.
+
+Responsibilities:
+
+Inherit from Goal
+
+Never mark itself complete
+
+Award points every time it is recorded
+
+Code
+---------------------------------------------------------
+|                   EternalGoal                          |
+---------------------------------------------------------
+| (inherits all members from Goal)                       |
+---------------------------------------------------------
+| + EternalGoal(name, description, points)               |
+| + RecordEvent_RP() : int        [override]             |
+| + GetStatusString_RP() : string [override]             |
+| + GetStringRepresentation_RP()  [override]             |
+---------------------------------------------------------
+ChecklistGoal
+Purpose:  
+A goal that must be completed a certain number of times. Awards points each time, plus a bonus when fully completed.
+
+Responsibilities:
+
+Inherit from Goal
+
+Track how many times it has been completed
+
+Award base points each time
+
+Award bonus points when target count is reached
+
+Mark itself complete when finished
+
+Code
+---------------------------------------------------------
+|                   ChecklistGoal                        |
+---------------------------------------------------------
+| - _targetCount_RP : int                                |
+| - _currentCount_RP : int                               |
+| - _bonusPoints_RP : int                                |
+---------------------------------------------------------
+| + ChecklistGoal(name, description, points,             |
+|                 targetCount, bonusPoints)              |
+| + RecordEvent_RP() : int        [override]             |
+| + GetStatusString_RP() : string [override]             |
+| + GetStringRepresentation_RP()  [override]             |
+| + GetCurrentCount_RP() : int                           |
+| + GetTargetCount_RP() : int                            |
+| + GetBonusPoints_RP() : int                            |
+| + SetCurrentCount_RP(value)                            |
+---------------------------------------------------------
+GoalManager_RP
+Purpose:  
+Manages all goals, user score, saving/loading, and recording events.
+
+Responsibilities:
+
+Store a list of goals
+
+Store the user’s total score
+
+Add new goals
+
+Display goals
+
+Record goal completion
+
+Save goals to a file
+
+Load goals from a file
+
+Provide gamification features (levels, bonuses, etc.)
+
+Code
+---------------------------------------------------------
+|                   GoalManager_RP                       |
+---------------------------------------------------------
+| - _goals_RP : List<Goal>                               |
+| - _score_RP : int                                      |
+---------------------------------------------------------
+| + AddGoal_RP(goal)                                     |
+| + ListGoals_RP()                                       |
+| + DisplayScore_RP()                                    |
+| + RecordEvent_RP()                                     |
+| + SaveGoals_RP(filename)                               |
+| + LoadGoals_RP(filename)                               |
+| + CreateGoal_RP()                                      |
+---------------------------------------------------------
+Program.cs
+Purpose:  
+Provides the main user interface and controls program flow.
+
+Responsibilities:
+
+Display menu
+
+Allow user to create goals
+
+Allow user to record events
+
+Allow user to save/load goals
+
+Display score and level
+
+Exit program cleanly
+
+Code
+---------------------------------------------------------
+|                     Program                            |
+---------------------------------------------------------
+| + Main()                                               |
+---------------------------------------------------------
+
+1. Show Main Menu
+The program repeatedly displays:
+
+Create New Goal
+
+List Goals
+
+Record Event
+
+Save Goals
+
+Load Goals
+
+Quit
+
+User selects an option by entering a number.
+
+2. Create a New Goal
+User selects goal type:
+
+Simple Goal
+
+Eternal Goal
+
+Checklist Goal
+
+Program asks for:
+
+Name
+
+Description
+
+Points
+
+(Checklist only) Target count
+
+(Checklist only) Bonus points
+
+GoalManager_RP stores the new goal.
+
+3. List Goals
+Program displays:
+
+[ ] or [X] for completion
+
+For checklist goals: Completed X/Y times
+
+For eternal goals: [∞] indicator
+
+User presses Enter to return to menu.
+
+4. Record Event
+User selects a goal from the list.
+
+Program:
+
+Calls RecordEvent_RP() on that goal
+
+Adds returned points to score
+
+Displays points earned
+
+Displays updated score and level
+
+5. Save Goals
+Program asks for a filename.
+
+GoalManager_RP writes:
+
+Score
+
+Each goal’s string representation
+
+6. Load Goals
+Program asks for a filename.
+
+GoalManager_RP:
+
+Reads score
+
+Reconstructs each goal from file
+
+Restores checklist progress and completion
+
+7. Quit
+Program exits cleanly.
+
+8. Gamification (Exceeds Requirements)
+User levels up every 1000 points
+
+Level displayed on main menu
+
+Level displayed after recording events

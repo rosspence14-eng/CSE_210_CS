@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\college\\spring_26\\CSE_210_CS\\Unit_2\\Unit_2.csproj",
-      "projectName": "Unit_2",
-      "projectPath": "D:\\college\\spring_26\\CSE_210_CS\\Unit_2\\Unit_2.csproj",
+      "projectUniqueName": "D:\\college\\spring_26\\CSE_210_CS\\Unit_4\\Unit_4.csproj",
+      "projectName": "Unit_4",
+      "projectPath": "D:\\college\\spring_26\\CSE_210_CS\\Unit_4\\Unit_4.csproj",
       "packagesPath": "C:\\Users\\rossp\\.nuget\\packages\\",
-      "outputPath": "D:\\college\\spring_26\\CSE_210_CS\\Unit_2\\obj\\",
+      "outputPath": "D:\\college\\spring_26\\CSE_210_CS\\Unit_4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rossp\\AppData\\Roaming\\NuGet\\NuGet.Config"
